@@ -8,8 +8,7 @@ const Button = ({ className = '', variant, compact, shadow, children, ...props }
     [`button--${variant}`]: true,
     'button--compact': compact,
     'button--withshadow': shadow,
-    className,
-  });
+  }, className);
   return (
     <button
       type="button"
@@ -22,6 +21,7 @@ const Button = ({ className = '', variant, compact, shadow, children, ...props }
 };
 
 Button.propTypes = {
+  className: PropTypes.string,
   children: PropTypes.node.isRequired,
   compact:PropTypes.bool,
   onClick: PropTypes.func,
@@ -30,6 +30,7 @@ Button.propTypes = {
 };
 
 Button.defaultProps = {
+  className: '',
   compact: false,
   onClick: () => {},
   shadow: false,

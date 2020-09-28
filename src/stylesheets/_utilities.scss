@@ -12,10 +12,12 @@
   }
 }
 
-.flex-1 {
-  flex: 1;
+.display-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
-.flex-2 {
-  flex: 2;
+.flex-1 {
+  flex: 1;
 }
