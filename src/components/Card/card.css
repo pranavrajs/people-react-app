@@ -1,7 +1,8 @@
 .card {
+  background-color: var(--color-white);
   border-radius: 0.625rem;
   box-shadow: var(--shadow-card);
-  width: 100%;
+  max-width: 100%;
 }
 
 .card--header {
@@ -10,7 +11,7 @@
 }
 
 .card--content {
-  padding: var(--s-8) var(--s-7) var(--s-9);
+  padding: var(--s-8) var(--s-7) var(--s-10);
 }
 
 .card--footer {
@@ -20,11 +21,11 @@
 
 .card--title {
   color: var(--color-heading);
-  font-size: var(--font-lg);
+  font-size: var(--font-xl);
   margin-bottom: var(--s-2);
 }
 
 .card--subtitle {
   color: var(--color-text);
-  font-size: var(--font-xs);
+  font-size: var(--font-xxs);
 }

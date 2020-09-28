@@ -9,7 +9,7 @@ const Card = ({ children, className = '' }) => (
 );
 
 Card.propTypes = {
-  children: PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired,
 };
 
 Card.defaultProps = {};

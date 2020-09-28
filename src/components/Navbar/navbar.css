@@ -1,0 +1,33 @@
+.navbar {
+  background: var(--color-white);
+  height: 5rem;
+  display: flex;
+  align-items: center;
+  margin-bottom: var(--s-8);
+}
+
+.navbar--container {
+  width: 100%;
+  align-items: center;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.navbar--userdetails {
+  margin-left: var(--s-2);
+}
+
+.navbar--user {
+  display: flex;
+  flex-direction: row;
+}
+
+.navbar--username {
+  color: var(--color-heading);
+  font-size: var(--font-sm);
+}
+
+.navbar--role {
+  color: var(--color-text);
+  font-size: var(--font-xxs);
+}

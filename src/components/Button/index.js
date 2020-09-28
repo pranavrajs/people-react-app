@@ -22,7 +22,7 @@ const Button = ({ className = '', variant, compact, shadow, children, ...props }
 };
 
 Button.propTypes = {
-  children: PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired,
   compact:PropTypes.bool,
   onClick: PropTypes.func,
   shadow: PropTypes.bool,

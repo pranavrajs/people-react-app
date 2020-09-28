@@ -25,7 +25,7 @@ export const PrimaryWithShadow = Template.bind({});
 PrimaryWithShadow.args = {
   variant: 'primary',
   children: <Fragment>
-    <Icon name="user" size="16" />
+    <Icon name="user" size="18" />
     <span>Add employee</span>
   </Fragment>,
   shadow: true,
