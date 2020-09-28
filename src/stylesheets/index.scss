@@ -1,9 +1,17 @@
 @import './colors';
 @import './spacing';
 @import './font-config';
+@import './utilities';
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
 
 body {
+  background: var(--color-bg);
   font-family: var(--font-family);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-weight: 400;
 }

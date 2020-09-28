@@ -5,9 +5,17 @@
 
 .container {
   max-width: 1140px;
+  padding: 0 var(--s-5);
 
   @media screen and (max-width: 768px) {
     max-width: 540px;
   }
 }
 
+.flex-1 {
+  flex: 1;
+}
+
+.flex-2 {
+  flex: 2;
+}
