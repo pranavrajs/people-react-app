@@ -1,0 +1,10 @@
+.avatar {
+  background: var(--color-avatar-bg);
+  border-radius: 50%;
+  color: var(--color-heading);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 2.25rem;
+  width: 2.25rem;
+}

@@ -1,0 +1,9 @@
+@import './colors';
+@import './spacing';
+@import './font-config';
+
+body {
+  font-family: var(--font-family);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
