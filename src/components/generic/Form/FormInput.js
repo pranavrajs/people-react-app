@@ -1,9 +1,11 @@
 import React from 'react';
 import { withLabelAndHelper } from './withLabelAndHelper';
+import classnames from 'classnames';
 
-const FormInput = (props) => (
-  <input {...props} className="form--input" />
-);
+const FormInput = ({ className, type, ...props }) => {
+  const inputClassName = classnames(className, 'form--input')
+  return <input {...props} className={inputClassName} />
+};
 
-const FormWithLabelAndHelperText = withLabelAndHelper(FormInput);
-export default FormWithLabelAndHelperText;
+const FormInputWithLabelAndHelperText = withLabelAndHelper(FormInput);
+export default FormInputWithLabelAndHelperText;

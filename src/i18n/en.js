@@ -47,7 +47,7 @@ export default {
       COUNTRY: {
         LABEL: 'Country',
         PLACEHOLDER: 'Select a country',
-        HELPER_TEXT: 'What is their role?',
+        HELPER_TEXT: 'Where are they based?',
       },
       SALARY: {
         LABEL: 'Salary',
