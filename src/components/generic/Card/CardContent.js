@@ -8,8 +8,8 @@ const CardContent = ({ children, className }) => (
 );
 
 CardContent.propTypes = {
+  children: PropTypes.node.isRequired,
   className: PropTypes.string,
-  children: PropTypes.string.isRequired,
 };
 
 CardContent.defaultProps = {

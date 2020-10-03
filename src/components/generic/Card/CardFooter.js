@@ -8,7 +8,7 @@ const CardFooter = ({ children, className }) => (
 );
 
 CardFooter.propTypes = {
-  children: PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired,
   className: PropTypes.string,
 };
 

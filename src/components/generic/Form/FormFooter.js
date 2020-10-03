@@ -4,15 +4,15 @@ import Button from '../Button';
 import './form.css';
 
 const FormFooter = ({
-  cancelButton,
-  submitButton,
+  cancelButton: { label: cancelButtonLabel, ...cancelButtonProps },
+  submitButton: { label: submitButtonLabel, ...submitButtonProps },
 }) => (
   <div className="display-row">
-    <Button variant="primary-light" compact onClick={cancelButton.onClick}>
-      {cancelButton.label}
+    <Button variant="primary-light" compact {...cancelButtonProps}>
+      {cancelButtonLabel}
     </Button>
-    <Button className="form-footer--submit-button" variant="primary" compact onClick={submitButton.onClick}>
-      {submitButton.label}
+    <Button className="form-footer--submit-button" variant="primary" compact {...submitButtonProps}>
+      {submitButtonLabel}
     </Button>
   </div>
 );
@@ -20,11 +20,9 @@ const FormFooter = ({
 FormFooter.propTypes = {
   cancelButton: PropTypes.shape({
     label: PropTypes.string.isRequired,
-    onClick: PropTypes.string.isRequired,
   }),
   submitButton: PropTypes.shape({
     label: PropTypes.string.isRequired,
-    onClick: PropTypes.string.isRequired,
   }),
 };
 

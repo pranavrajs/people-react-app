@@ -1,7 +1,12 @@
+import { getNextRecordId } from './selectors';
+
 /* eslint-disable no-param-reassign */
 export default {
   add(state, action) {
-    state.records.push(action.payload);
+    state.records.push({
+      id: getNextRecordId(state),
+      ...action.payload,
+    });
   },
   update(state, action) {
     const { id, ...data } = action.payload;

@@ -1,10 +1,9 @@
 import React from 'react';
-import './listing.css';
 import PropTypes from 'prop-types';
 
-import i18n from '../../../i18n/en';
-import Button from '../../../components/generic/Button';
-import Icon from '../../../components/generic/Icon';
+import i18n from 'i18n/en';
+import Button from 'components/generic/Button';
+import Icon from 'components/generic/Icon';
 
 const { LIST } = i18n.EMPLOYEE;
 const PageHeader = ({ employeeCount, onClick }) => {

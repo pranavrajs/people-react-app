@@ -11,23 +11,26 @@ import i18n from 'i18n/en';
 import EmployeeForm from 'components/business/EmployeeForm';
 import employeeSchema from 'components/business/EmployeeForm/schema';
 import { Form, Formik } from 'formik';
+import { Redirect } from 'react-router-dom';
 
-const { ADD } = i18n.EMPLOYEE;
+const { EDIT } = i18n.EMPLOYEE;
 
-const NewEmployeeComponent = (props) => {
-  const { history, addEmployee } = props;
-
+const EditEmployee = (props) => {
+  const { history, updateEmployee, employee } = props;
   const goToListPage = () => history.replace('/employees');
+
+  if (!employee.id) {
+    return <Redirect to="/employees" />;
+  }
+
   return (
     <Card>
-      <CardHeader title={ADD.TITLE} subtitle={ADD.SUBTITLE} />
+      <CardHeader title={EDIT.TITLE} subtitle={EDIT.SUBTITLE} />
       <Formik
-        initialValues={{
-          fullName: '', birthDate: '', jobTitle: '', country: '', salary: '',
-        }}
+        initialValues={employee}
         validationSchema={employeeSchema}
         onSubmit={(values) => {
-          addEmployee(values);
+          updateEmployee(values);
           goToListPage();
         }}
       >
@@ -41,11 +44,11 @@ const NewEmployeeComponent = (props) => {
             <CardFooter className="employee-form--footer">
               <FormFooter
                 cancelButton={{
-                  label: ADD.CANCEL,
+                  label: EDIT.CANCEL,
                   onClick: goToListPage,
                 }}
                 submitButton={{
-                  label: ADD.SUBMIT,
+                  label: EDIT.SUBMIT,
                   type: 'submit',
                 }}
               />
@@ -57,14 +60,18 @@ const NewEmployeeComponent = (props) => {
   );
 };
 
-NewEmployeeComponent.propTypes = {
-  addEmployee: PropTypes.func.isRequired,
+EditEmployee.propTypes = {
+  employee: PropTypes.shape({
+    id: PropTypes.number,
+  }),
+  updateEmployee: PropTypes.func.isRequired,
   history: PropTypes.shape({
     replace: PropTypes.func,
   }).isRequired,
 };
 
-NewEmployeeComponent.defaultProps = {
+EditEmployee.defaultProps = {
+  employee: {},
 };
 
-export default NewEmployeeComponent;
+export default EditEmployee;

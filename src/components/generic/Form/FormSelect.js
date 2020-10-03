@@ -31,6 +31,12 @@ const customSelectStyles = {
     color: 'var(--color-text-light)',
     margin: 0,
   }),
+  singleValue: (provided) => ({
+    ...provided,
+    color: 'var(--color-heading)',
+    marginLeft: 0,
+    marginRight: 0,
+  }),
 };
 
 const FormSelect = ({ className, ...props }) => {

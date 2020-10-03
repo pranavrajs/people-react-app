@@ -1,9 +1,8 @@
 import React from 'react';
-import EmployeeCard from '../../../components/business/EmployeeCard';
+import EmployeeCard from 'components/business/EmployeeCard';
+import i18n from 'i18n/en';
 
-import i18n from '../../../i18n/en';
-
-const EmployeeList = ({ employees }) => {
+const EmployeeList = ({ employees, onClick }) => {
   if (!employees.length) {
     return (
       <div className="text-center employee-list--no-records">
@@ -14,7 +13,7 @@ const EmployeeList = ({ employees }) => {
   }
 
   return employees.map((employee) => (
-    <EmployeeCard {...employee} key={employee.id} />
+    <EmployeeCard {...employee} key={employee.id} onClick={onClick} />
   ));
 };
 

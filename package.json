@@ -9,18 +9,21 @@
     "@testing-library/user-event": "^7.1.2",
     "classnames": "^2.2.6",
     "country-json": "^1.1.0",
+    "date-fns": "^2.16.1",
     "formik": "^2.1.5",
     "husky": "^4.3.0",
     "node-sass": "^4.14.1",
+    "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-redux": "^7.2.1",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.3",
     "react-select": "^3.1.0",
     "redux": "^4.0.5",
     "redux-devtools-extension": "^2.13.8",
     "redux-thunk": "^2.3.0",
-    "prop-types": "^15.7.2"
+    "yup": "^0.29.3"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -44,6 +47,15 @@
     ],
     "globals": {
       "document": true
+    },
+    "settings": {
+      "import/resolver": {
+        "node": {
+          "paths": [
+            "src"
+          ]
+        }
+      }
     }
   },
   "husky": {

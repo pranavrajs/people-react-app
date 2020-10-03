@@ -21,11 +21,15 @@
   font-size: var(--font-xxs);
 }
 
+.form--helper-text.error {
+  color: var(--color-error);
+}
+
 .form--input {
   background: transparent;
   border: 0;
   border-bottom: 1px solid var(--color-text-light);
-  color: var(--color-text);
+  color: var(--color-heading);
   padding: var(--s-2) 0;
   font-size: var(--font-md);
   margin-bottom: var(--s-1);

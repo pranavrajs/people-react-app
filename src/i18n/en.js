@@ -21,7 +21,7 @@ export default {
     ADD: {
       TITLE: 'Add a new employee',
       SUBTITLE: 'Fill out the information of your new employee.',
-      SUBMIT: 'Add employee',
+      SUBMIT: 'Add Employee',
       CANCEL: 'Cancel',
     },
     EDIT: {
@@ -35,26 +35,45 @@ export default {
         LABEL: 'Name',
         PLACEHOLDER: 'e.g. Jane Doe',
         HELPER_TEXT: 'First and last names',
+        ERRORS: {
+          TOO_SHORT: 'The name should contain atleast 2 characters',
+          REQUIRED: 'Required',
+        },
       },
       BIRTH_DATE: {
         LABEL: 'Birth Date',
         PLACEHOLDER: 'e.g. 17/02/1990',
         HELPER_TEXT: 'DD/MM/YYYY',
+        ERRORS: {
+          DATE_BEFORE: 'Date should be before',
+          DATE_AFTER: 'Date should be after',
+          REQUIRED: 'Required',
+        },
       },
       JOB_TITLE: {
         LABEL: 'Job title',
         PLACEHOLDER: 'e.g Product manager',
         HELPER_TEXT: 'What is their role?',
+        ERRORS: {
+          TOO_SHORT: 'The job title should contain atleast 2 characters',
+          REQUIRED: 'Required',
+        },
       },
       COUNTRY: {
         LABEL: 'Country',
         PLACEHOLDER: 'Select a country',
         HELPER_TEXT: 'Where are they based?',
+        ERRORS: {
+          REQUIRED: 'Required',
+        },
       },
       SALARY: {
         LABEL: 'Salary',
         PLACEHOLDER: 'e.g. 50000',
         HELPER_TEXT: 'Gross yearly salary',
+        ERRORS: {
+          REQUIRED: 'Required',
+        },
       },
     },
   },

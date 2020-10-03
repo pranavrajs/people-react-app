@@ -2,9 +2,9 @@ import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 
 import './listing.css';
-import EmployeeList from './EmployeeList';
-import EmployeeTableHeader from './EmployeeTableHeader';
-import PageHeader from './PageHeader';
+import EmployeeList from './components/EmployeeList';
+import EmployeeTableHeader from './components/EmployeeTableHeader';
+import PageHeader from './components/PageHeader';
 
 const EmployeeListing = (props) => {
   const { history, employees } = props;
@@ -16,13 +16,13 @@ const EmployeeListing = (props) => {
         onClick={() => history.push('/employees/new')}
       />
       { employees.length ? <EmployeeTableHeader /> : null }
-      <EmployeeList employees={employees} />
+      <EmployeeList employees={employees} onClick={(id) => history.push(`/employees/${id}/update`)} />
     </Fragment>
   );
 };
 
 EmployeeListing.propTypes = {
-  employees: PropTypes.arrayOf(),
+  employees: PropTypes.arrayOf(PropTypes.shape({})),
   history: PropTypes.shape({
     push: PropTypes.func,
   }).isRequired,

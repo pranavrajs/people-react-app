@@ -1,5 +1,5 @@
 import React from 'react';
-import i18n from '../../../i18n/en';
+import i18n from 'i18n/en';
 
 const { HEADER } = i18n.EMPLOYEE.LIST.TABLE;
 

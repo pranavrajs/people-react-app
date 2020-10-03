@@ -1,4 +1,4 @@
-import employeeSlice from '../../employees';
+import employeeSlice from '..';
 
 const { reducer } = employeeSlice;
 
