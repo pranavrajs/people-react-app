@@ -24,10 +24,10 @@ Primary.args = {
 export const PrimaryWithShadow = Template.bind({});
 PrimaryWithShadow.args = {
   variant: 'primary',
-  children: <Fragment>
+  children: <>
     <Icon name="user" size="18" />
     <span>Add employee</span>
-  </Fragment>,
+            </>,
   shadow: true,
   onClick: () => console.log('Clicked add employee'),
 };

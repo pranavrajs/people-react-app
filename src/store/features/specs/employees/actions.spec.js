@@ -1,4 +1,4 @@
-import employeeSlice from '../../employees'
+import employeeSlice from '../../employees';
 
 const { actions } = employeeSlice;
 
@@ -7,15 +7,15 @@ describe('#add', () => {
     expect(actions.add({ id: 1 })).toEqual({
       type: 'employee/add',
       payload: { id: 1 },
-    })
-  })
-})
+    });
+  });
+});
 
 describe('#update', () => {
   it('returns correct action type', () => {
     expect(actions.update({ id: 1 })).toEqual({
       type: 'employee/update',
       payload: { id: 1 },
-    })
-  })
-})
+    });
+  });
+});

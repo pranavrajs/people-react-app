@@ -7,4 +7,4 @@ export default {
     isUpdating: false,
     isDeleting: false,
   },
-}
+};

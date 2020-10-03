@@ -4,13 +4,13 @@ import User from './assets/user';
 
 const ICONS = {
   user: User,
-}
+};
 
 const Icon = ({ name, ...props }) => {
-  const Element = ICONS[name] || 'div'
+  const Element = ICONS[name] || 'div';
   return (
     <Element {...props} />
-  )
+  );
 };
 
 Icon.propTypes = {

@@ -10,6 +10,7 @@
     "classnames": "^2.2.6",
     "country-json": "^1.1.0",
     "formik": "^2.1.5",
+    "husky": "^4.3.0",
     "node-sass": "^4.14.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
@@ -18,7 +19,8 @@
     "react-select": "^3.1.0",
     "redux": "^4.0.5",
     "redux-devtools-extension": "^2.13.8",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "prop-types": "^15.7.2"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -26,10 +28,28 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 6006 -s public",
-    "build-storybook": "build-storybook -s public"
+    "build-storybook": "build-storybook -s public",
+    "lint": "eslint src"
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": "airbnb",
+    "rules": {
+      "react/jsx-props-no-spreading": "off",
+      "react/jsx-filename-extension": "off",
+      "react/jsx-fragments": "off"
+    },
+    "ignorePatterns": [
+      "*.spec.js",
+      "*.stories.js"
+    ],
+    "globals": {
+      "document": true
+    }
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn lint"
+    }
   },
   "browserslist": {
     "production": [
@@ -52,6 +72,7 @@
     "@storybook/preset-create-react-app": "^3.1.4",
     "@storybook/react": "^6.0.22",
     "babel-loader": "^8.1.0",
+    "eslint-config-airbnb": "^18.2.0",
     "react-is": "^16.13.1"
   }
 }

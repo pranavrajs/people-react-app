@@ -1,20 +1,19 @@
-import React from "react";
+import React from 'react';
 import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Redirect
-} from "react-router-dom";
-import Navbar from "./components/Navbar";
-
-import EmployeeListing from './views/Employees/Listing'
-import NewEmployeeView from './views/Employees/New'
+  Redirect,
+} from 'react-router-dom';
+import Navbar from './components/generic/Navbar';
+import EmployeeListing from './views/Employees/Listing';
+import NewEmployeeView from './views/Employees/New';
 
 function App() {
   return (
     <Router>
       <div>
-        <Navbar user={{ name: 'Julie Howard', role: 'Admin' }}/>
+        <Navbar user={{ name: 'Julie Howard', role: 'Admin' }} />
         <div className="container mx-auto">
           <Switch>
             <Route exact path="/employees" component={EmployeeListing} />

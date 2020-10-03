@@ -1,12 +1,12 @@
-import React from 'react'
+import React from 'react';
 import { formatSalary } from '../../../utils';
 import Button from '../../generic/Button';
-import Card from "../../generic/Card";
+import Card from '../../generic/Card';
 import i18n from '../../../i18n/en';
 
-const { LIST } = i18n.EMPLOYEE
+const { LIST } = i18n.EMPLOYEE;
 
-export const EmployeeCard = (employee) => (
+const EmployeeCard = (employee) => (
   <Card className="employee-list--card" key={employee.id}>
     <div className="flex-1 employee-row--cell">
       <div className="employee-card--name">{employee.fullName}</div>
@@ -22,3 +22,5 @@ export const EmployeeCard = (employee) => (
     </div>
   </Card>
 );
+
+export default EmployeeCard;

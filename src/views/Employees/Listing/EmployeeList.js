@@ -1,8 +1,21 @@
 import React from 'react';
-import { EmployeeCard } from '../../../components/business/EmployeeCard';
+import EmployeeCard from '../../../components/business/EmployeeCard';
 
-const EmployeeList = ({ employees }) => employees.map(employee => (
-  <EmployeeCard {...employee} key={employee.id} />
-))
+import i18n from '../../../i18n/en';
 
-export default EmployeeList
+const EmployeeList = ({ employees }) => {
+  if (!employees.length) {
+    return (
+      <div className="text-center employee-list--no-records">
+        <div>{i18n.EMPLOYEE.LIST.NO_RECORDS}</div>
+        <div>{i18n.EMPLOYEE.LIST.CLICK_ON_ADD_EMPLOYEE}</div>
+      </div>
+    );
+  }
+
+  return employees.map((employee) => (
+    <EmployeeCard {...employee} key={employee.id} />
+  ));
+};
+
+export default EmployeeList;

@@ -1,6 +1,8 @@
 export default {
   EMPLOYEE: {
     LIST: {
+      NO_RECORDS: 'There are no available employee records.',
+      CLICK_ON_ADD_EMPLOYEE: ' Click on Add Employee to create a new record.',
       TITLE: 'People',
       RECORD_SINGULAR: 'employee',
       RECORD_PLURAL: 'employees',
@@ -13,8 +15,8 @@ export default {
           SALARY: 'Salary',
         },
         EDIT_BUTTON_TEXT: 'Edit',
-        PER_YEAR: 'per year'
-      }
+        PER_YEAR: 'per year',
+      },
     },
     ADD: {
       TITLE: 'Add a new employee',
@@ -54,6 +56,6 @@ export default {
         PLACEHOLDER: 'e.g. 50000',
         HELPER_TEXT: 'Gross yearly salary',
       },
-    }
-  }
-}
+    },
+  },
+};

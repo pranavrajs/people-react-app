@@ -13,10 +13,13 @@ const CardHeader = ({ title, subtitle, className }) => (
 );
 
 CardHeader.propTypes = {
+  className: PropTypes.string,
   subtitle: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
 };
 
-CardHeader.defaultProps = {};
+CardHeader.defaultProps = {
+  className: '',
+};
 
 export default CardHeader;

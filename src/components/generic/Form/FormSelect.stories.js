@@ -16,7 +16,7 @@ DefaultFormSelect.args = {
   options: [
     { value: 'chocolate', label: 'Chocolate' },
     { value: 'strawberry', label: 'Strawberry' },
-    { value: 'vanilla', label: 'Vanilla' }
+    { value: 'vanilla', label: 'Vanilla' },
   ],
-  helperText: 'Select an item'
+  helperText: 'Select an item',
 };

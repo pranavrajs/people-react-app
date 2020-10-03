@@ -1,72 +1,13 @@
 import React, { Fragment } from 'react';
-import './listing.css'
-import i18n from '../../../i18n/en'
-import Button from '../../../components/Button';
-import Icon from '../../../components/generic/Icon';
+import PropTypes from 'prop-types';
+
+import './listing.css';
 import EmployeeList from './EmployeeList';
 import EmployeeTableHeader from './EmployeeTableHeader';
-
-const { LIST } = i18n.EMPLOYEE;
-
-const PageHeader = ({ employeeCount, onClick }) => {
-  let employeeCountIndication = '';
-  if (employeeCount > 1) {
-    employeeCountIndication = `${employeeCount} ${LIST.RECORD_PLURAL}`
-  } else if (employeeCount === 1) {
-    employeeCountIndication = `${employeeCount} ${LIST.RECORD_SINGULAR}`
-  }
-
-  return (
-    <div className="employee-list--header">
-      <div className="employee-list--title-group">
-        <div className="employee-list--title">{LIST.TITLE}</div>
-        <div className="employee-list--record-indicator">{employeeCountIndication}</div>
-      </div>
-      <Button shadow onClick={onClick}>
-        <Icon name="user" size={18} />
-        <span>{LIST.ADD_EMPLOYEE_BUTTON_TEXT}</span>
-      </Button>
-    </div>
-  )
-}
+import PageHeader from './PageHeader';
 
 const EmployeeListing = (props) => {
-  const employees = [
-    {
-      id: 1,
-      fullName: 'Ann Henry',
-      dob: '04/12/1990',
-      jobTitle: 'Product manager',
-      country: 'United States',
-      salary: 60000
-    },
-    {
-      id: 2,
-      fullName: 'Ann Henry',
-      dob: '04/12/1990',
-      jobTitle: 'Product manager',
-      country: 'United States',
-      salary: 60000
-    },
-    {
-      id: 3,
-      fullName: 'Ann Henry',
-      dob: '04/12/1990',
-      jobTitle: 'Product manager',
-      country: 'United States',
-      salary: 60000
-    },
-    {
-      id: 4,
-      fullName: 'Ann Henry',
-      dob: '04/12/1990',
-      jobTitle: 'Product manager',
-      country: 'United States',
-      salary: 60000
-    }
-  ]
-
-  const { history } = props
+  const { history, employees } = props;
 
   return (
     <Fragment>
@@ -74,10 +15,21 @@ const EmployeeListing = (props) => {
         employeeCount={employees.length}
         onClick={() => history.push('/employees/new')}
       />
-      <EmployeeTableHeader />
+      { employees.length ? <EmployeeTableHeader /> : null }
       <EmployeeList employees={employees} />
     </Fragment>
-  )
-}
+  );
+};
 
-export default EmployeeListing
+EmployeeListing.propTypes = {
+  employees: PropTypes.arrayOf(),
+  history: PropTypes.shape({
+    push: PropTypes.func,
+  }).isRequired,
+};
+
+EmployeeListing.defaultProps = {
+  employees: [],
+};
+
+export default EmployeeListing;

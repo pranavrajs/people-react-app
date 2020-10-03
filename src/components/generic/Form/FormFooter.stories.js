@@ -18,5 +18,5 @@ DefaultFormFooter.args = {
   submitButton: {
     label: 'Submit',
     onClick: () => console.log('Submit clicked'),
-  }
+  },
 };

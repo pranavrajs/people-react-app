@@ -1,18 +1,21 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import Card from '../../../components/generic/Card';
 import CardContent from '../../../components/generic/Card/CardContent';
 import CardFooter from '../../../components/generic/Card/CardFooter';
 import CardHeader from '../../../components/generic/Card/CardHeader';
 import FormFooter from '../../../components/generic/Form/FormFooter';
 import './new.css';
-import i18n from '../../../i18n/en'
+import i18n from '../../../i18n/en';
 import EmployeeForm from '../../../components/business/EmployeeForm';
-const { ADD } = i18n.EMPLOYEE
+
+const { ADD } = i18n.EMPLOYEE;
 
 const NewEmployeeComponent = (props) => {
   const { history } = props;
 
-  const onCancel = () => history.replace('/employees')
+  const onCancel = () => history.replace('/employees');
 
   return (
     <Card>
@@ -34,6 +37,15 @@ const NewEmployeeComponent = (props) => {
       </CardFooter>
     </Card>
   );
-}
+};
+
+NewEmployeeComponent.propTypes = {
+  history: PropTypes.shape({
+    replace: PropTypes.func,
+  }).isRequired,
+};
+
+NewEmployeeComponent.defaultProps = {
+};
 
 export default NewEmployeeComponent;

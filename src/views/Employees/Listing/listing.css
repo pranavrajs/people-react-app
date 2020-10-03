@@ -76,3 +76,9 @@
     margin-bottom: var(--s-2);
   }
 }
+
+.employee-list--no-records {
+  color: var(--color-text);
+  padding: var(--s-8);
+  line-height: var(--s-8);
+}

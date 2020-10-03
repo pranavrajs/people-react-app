@@ -1,10 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './button.css';
-import classnames from 'classnames'
-const Button = ({ className = '', variant, compact, shadow, children, ...props }) => {
+import classnames from 'classnames';
+
+const Button = ({
+  className = '', variant, compact, shadow, children, ...props
+}) => {
   const buttonClassName = classnames({
-    'button': true,
+    button: true,
     [`button--${variant}`]: true,
     'button--compact': compact,
     'button--withshadow': shadow,
@@ -23,7 +26,7 @@ const Button = ({ className = '', variant, compact, shadow, children, ...props }
 Button.propTypes = {
   className: PropTypes.string,
   children: PropTypes.node.isRequired,
-  compact:PropTypes.bool,
+  compact: PropTypes.bool,
   onClick: PropTypes.func,
   shadow: PropTypes.bool,
   variant: PropTypes.string,

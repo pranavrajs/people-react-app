@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const CardFooter = ({ children, className = '' }) => (
+const CardFooter = ({ children, className }) => (
   <div className={`card--footer ${className}`}>
     {children}
   </div>
@@ -9,8 +9,11 @@ const CardFooter = ({ children, className = '' }) => (
 
 CardFooter.propTypes = {
   children: PropTypes.string.isRequired,
+  className: PropTypes.string,
 };
 
-CardFooter.defaultProps = {};
+CardFooter.defaultProps = {
+  className: '',
+};
 
 export default CardFooter;

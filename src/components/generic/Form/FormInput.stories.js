@@ -13,5 +13,5 @@ export const DefaultFormInput = Template.bind({});
 DefaultFormInput.args = {
   label: 'Name',
   placeholder: 'eg: Jane Doe',
-  helperText: 'First and last names'
+  helperText: 'First and last names',
 };

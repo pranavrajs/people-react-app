@@ -1,7 +1,9 @@
 import React from 'react';
-import { withLabelAndHelper } from './withLabelAndHelper';
 import classnames from 'classnames';
-import Select from 'react-select'
+import Select from 'react-select';
+import PropTypes from 'prop-types';
+
+import withLabelAndHelper from './withLabelAndHelper';
 
 const customSelectStyles = {
   control: (provided, state) => ({
@@ -21,20 +23,28 @@ const customSelectStyles = {
     padding: '0',
     position: 'relative',
   }),
-  valueContainer: (provided) => {
-    return { ...provided, color: 'var(--color-text-light)', padding: 0, fontSize: 'var(--font-md)' }
-  },
+  valueContainer: (provided) => ({
+    ...provided, color: 'var(--color-text-light)', padding: 0, fontSize: 'var(--font-md)',
+  }),
   placeholder: (provided) => ({
     ...provided,
     color: 'var(--color-text-light)',
     margin: 0,
-  })
-}
+  }),
+};
 
-const FormSelect = ({ className, type, ...props }) => {
-  const inputClassName = classnames(className, 'form--select')
+const FormSelect = ({ className, ...props }) => {
+  const inputClassName = classnames(className, 'form--select');
 
-  return <Select {...props} styles={customSelectStyles} className={inputClassName} />
+  return <Select {...props} styles={customSelectStyles} className={inputClassName} />;
+};
+
+FormSelect.propTypes = {
+  className: PropTypes.string,
+};
+
+FormSelect.defaultProps = {
+  className: '',
 };
 
 const FormSelectWithLabelAndHelperText = withLabelAndHelper(FormSelect);
