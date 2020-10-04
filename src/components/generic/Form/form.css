@@ -57,3 +57,7 @@ input[type=date] {
 .form-footer--submit-button {
   margin-left: var(--s-2);
 }
+
+.form--select.error > div {
+  border-bottom-color: var(--color-error);
+}
