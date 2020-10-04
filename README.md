@@ -69,3 +69,20 @@ The output will be available in the `build` directory.
 The application supports themeing with CSS Variables. Inorder to change the colors, take a look at 'src/stylesheets/colors.css';
 
 Note: CSS Variables are not supported in IE. If you want the application to work on IE, please add appropriate polyfills.
+
+
+### Testing
+
+We use Jest and enzyme for testing. The tests corresponding to a component or redux slice can be viewed at `specs` folder.
+
+To write a new spec on a new folder create a `specs` folder and create a file with the name `*.specs.js`
+
+```js
+yarn test
+```
+
+By default the tests will be running in watch mode. To disable watch add `--watchAll=false` flag
+
+```bash
+yarn test --watchAll=false
+```
