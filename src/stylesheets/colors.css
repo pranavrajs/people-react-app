@@ -1,5 +1,4 @@
 :root {
-  // Bg, text colors
   --color-primary: #624DE3;
   --color-primary-light: rgba(98, 77, 227, 0.3);
   --color-heading: #00234B;
@@ -12,7 +11,6 @@
   --color-avatar-bg: #FFE8DF;
   --color-error: #e74c3c;
 
-  // Shadow colors
   --shadow-card: 6px 6px 54px rgba(0, 0, 0, 0.05);
   --shadow-button: 0px 6px 12px rgba(98, 77, 227, 0.3);
 }

@@ -17,8 +17,14 @@
   margin-right: var(--s-2);
 }
 
-.button:hover {
+.button:hover,
+.button:focus,
+.button:active {
   transform: translateY(-2px);
+}
+
+.button:focus {
+  outline: 0;
 }
 
 .button--primary {

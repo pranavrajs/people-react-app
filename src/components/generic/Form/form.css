@@ -37,6 +37,10 @@
   width: 100%;
 }
 
+.form--input::placeholder {
+  color: var(--color-text);
+}
+
 .form--input.error {
   border-bottom-color: var(--color-error);
 }

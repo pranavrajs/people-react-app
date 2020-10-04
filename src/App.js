@@ -10,8 +10,6 @@ import EmployeeListing from 'views/Employees/Listing/container';
 import NewEmployeeView from 'views/Employees/New/container';
 import EditEmployeeContainer from 'views/Employees/Edit/container';
 
-import './App.css';
-
 function App() {
   return (
     <Router>

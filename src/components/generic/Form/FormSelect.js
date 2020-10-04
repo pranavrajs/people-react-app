@@ -24,11 +24,11 @@ const customSelectStyles = {
     position: 'relative',
   }),
   valueContainer: (provided) => ({
-    ...provided, color: 'var(--color-text-light)', padding: 0, fontSize: 'var(--font-md)',
+    ...provided, color: 'var(--color-heading)', padding: 0, fontSize: 'var(--font-md)',
   }),
   placeholder: (provided) => ({
     ...provided,
-    color: 'var(--color-text-light)',
+    color: 'var(--color-text)',
     margin: 0,
   }),
   singleValue: (provided) => ({
