@@ -3,6 +3,7 @@ import { formatSalary } from '../../../utils';
 import Button from '../../generic/Button';
 import Card from '../../generic/Card';
 import i18n from '../../../i18n/en';
+import './employee-card.css';
 
 const { LIST } = i18n.EMPLOYEE;
 

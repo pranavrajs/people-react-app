@@ -35,45 +35,9 @@
   text-transform: uppercase;
 }
 
-.employee-list--card {
-  color: var(--color-text);
-  display: flex;
-  align-items: center;
-  font-size: var(--font-sm);
-  flex-direction: row;
-  padding: var(--s-7) var(--s-6);
-  margin-top: var(--s-4);
-}
-
-.employee-card--name {
-  color: var(--color-heading);
-  font-weight: 600;
-  font-size: var(--font-md);
-  margin-bottom: var(--s-1);
-}
-
-.employee-card--dob {
-  font-size: var(--font-xs);
-}
-
-.employee-card--actions {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-}
-
 @media screen and (max-width: 768px) {
   .employee-table--header {
     display: none;
-  }
-
-  .employee-list--card {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .employee-row--cell {
-    margin-bottom: var(--s-2);
   }
 }
 
