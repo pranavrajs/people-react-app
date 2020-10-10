@@ -15,6 +15,7 @@ const EmployeeForm = () => (
     <Field
       type="text"
       name="fullName"
+      data-testid="fullName"
       placeholder={FORM.NAME.PLACEHOLDER}
       label={FORM.NAME.LABEL}
       helperText={FORM.NAME.HELPER_TEXT}
@@ -23,6 +24,7 @@ const EmployeeForm = () => (
     <Field
       type="text"
       name="birthDate"
+      data-testid="birthDate"
       placeholder={FORM.BIRTH_DATE.PLACEHOLDER}
       label={FORM.BIRTH_DATE.LABEL}
       helperText={FORM.BIRTH_DATE.HELPER_TEXT}
@@ -31,6 +33,7 @@ const EmployeeForm = () => (
     <Field
       type="text"
       name="jobTitle"
+      data-testid="jobTitle"
       placeholder={FORM.JOB_TITLE.PLACEHOLDER}
       label={FORM.JOB_TITLE.LABEL}
       helperText={FORM.JOB_TITLE.HELPER_TEXT}
@@ -38,6 +41,7 @@ const EmployeeForm = () => (
     />
     <Field
       name="country"
+      data-testid="country"
       placeholder={FORM.COUNTRY.PLACEHOLDER}
       label={FORM.COUNTRY.LABEL}
       helperText={FORM.COUNTRY.HELPER_TEXT}
@@ -47,6 +51,7 @@ const EmployeeForm = () => (
     <Field
       type="number"
       name="salary"
+      data-testid="salary"
       placeholder={FORM.SALARY.PLACEHOLDER}
       label={FORM.SALARY.LABEL}
       helperText={FORM.SALARY.HELPER_TEXT}

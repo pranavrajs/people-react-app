@@ -1,29 +1,38 @@
 import React from 'react';
-import { shallow, mount } from 'enzyme';
-import i18n from 'i18n/en';
+import { render, screen } from '@testing-library/react';
 import EmployeeListing from '..';
-import EmployeeTableHeader from '../components/EmployeeTableHeader';
+import userEvent from '@testing-library/user-event'
+
+jest.mock('../components/EmployeeTableHeader', () => () => <div data-testid="EmployeeTableHeader" />)
 
 describe('EmployeeListing', () => {
   it('doesnot render EmployeeTableHeader if employee count is empty', () => {
-    const wrapper = shallow(<EmployeeListing employees={[]} history={{}} />);
-    expect(wrapper.containsMatchingElement(<EmployeeTableHeader />)).toEqual(false);
+    render(<EmployeeListing employees={[]} history={{}} />);
+    expect(screen.queryByTestId('EmployeeTableHeader')).not.toBeInTheDocument();
   });
 
   it('renders EmployeeTableHeader if employee count is not 0', () => {
-    const wrapper = shallow(<EmployeeListing employees={[{ id: 1, name: 'employee-1' }]} history={{}} />);
-    expect(wrapper.containsMatchingElement(<EmployeeTableHeader />)).toEqual(true);
+    render(
+      <EmployeeListing
+        employees={[
+          { id: 1, name: 'employee-1', country: { label: '' }, salary: 0 },
+          { id: 2, name: 'employee-2', country: { label: '' }, salary: 0 }
+        ]}
+        history={{}}
+      />
+    );
+    expect(screen.queryAllByTestId('EmployeeTableHeader').length).toEqual(1);
   });
 
   it('calls edit function with correct arguments', () => {
-    const mockClickFn = jest.fn()
-    const component = mount(
+    const mockClickFn = jest.fn();
+    render(
       <EmployeeListing
         employees={[{ id: 1, name: 'employee-1', country: { label: 'India' }, salary: 5000 }]}
         history={{ push: mockClickFn }}
       />
     );
-    component.find('button').last().simulate('click');
+    userEvent.click(screen.getByText('Edit'));
     expect(mockClickFn.mock.calls.length).toEqual(1);
     expect(mockClickFn.mock.calls[0][0]).toEqual('/employees/1/update');
   })

@@ -1,22 +1,28 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { render, screen } from '@testing-library/react';
 import EmployeeList from '../EmployeeList';
 import i18n from 'i18n/en';
-import EmployeeCard from 'components/business/EmployeeCard';
+
+jest.mock('components/business/EmployeeCard', () => () => <div data-testid="EmployeeCard" />);
 
 describe('EmployeeList', () => {
   it('render no records message if employee list is empty', () => {
-    const wrapper = shallow(<EmployeeList employees={[]} />);
+    render(<EmployeeList employees={[]} />);
     const noRecordsMessage = i18n.EMPLOYEE.LIST.NO_RECORDS;
-    expect(wrapper.contains(noRecordsMessage)).toEqual(true);
+    expect(screen.queryByText(noRecordsMessage)).toBeInTheDocument();
   });
 
   it('render employee card component if employee list is available', () => {
-    const wrapper = shallow(<EmployeeList employees={[{ id: 1, name: 'employee-1' }]} />);
+    render(
+      <EmployeeList
+        employees={[
+          { id: 1, name: 'employee-1', country: { label: 'India' }, salary: 0 },
+          { id: 2, name: 'employee-2', country: { label: 'USA' }, salary: 1 }
+        ]}
+      />
+    );
     const noRecordsMessage = i18n.EMPLOYEE.LIST.NO_RECORDS;
-    expect(wrapper.contains(noRecordsMessage)).toEqual(false);
-
-    const employeeCard = <EmployeeCard id={1} name="employee-1" />
-    expect(wrapper.containsMatchingElement(employeeCard)).toEqual(true);
+    expect(screen.queryByText(noRecordsMessage)).not.toBeInTheDocument();
+    expect(screen.queryAllByTestId('EmployeeCard').length).toEqual(2);
   })
 })

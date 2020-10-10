@@ -4,14 +4,12 @@
   "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^1.4.0",
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.3.2",
-    "@testing-library/user-event": "^7.1.2",
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^11.0.4",
+    "@testing-library/user-event": "^12.1.7",
     "classnames": "^2.2.6",
     "country-json": "^1.1.0",
     "date-fns": "^2.16.1",
-    "enzyme": "^3.11.0",
-    "enzyme-adapter-react-16": "^1.15.5",
     "formik": "^2.1.5",
     "husky": "^4.3.0",
     "prop-types": "^15.7.2",
@@ -30,7 +28,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test --env=jest-environment-jsdom-sixteen",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -s public",
@@ -60,6 +58,11 @@
       }
     }
   },
+  "jest": {
+    "moduleNameMapper": {
+      "react-select": "components/generic/Form/__mocks/react-select.js"
+    }
+  },
   "husky": {
     "hooks": {
       "pre-commit": "yarn lint"
@@ -87,6 +90,7 @@
     "@storybook/react": "^6.0.22",
     "babel-loader": "^8.1.0",
     "eslint-config-airbnb": "^18.2.0",
-    "react-is": "^16.13.1"
+    "react-is": "^16.13.1",
+    "jest-environment-jsdom-sixteen": "^1.0.3"
   }
 }

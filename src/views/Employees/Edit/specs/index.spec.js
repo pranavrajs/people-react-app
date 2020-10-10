@@ -1,52 +1,75 @@
 import React from 'react';
-import { shallow, mount } from 'enzyme';
-import EmployeeForm from 'components/business/EmployeeForm';
-import EditEmployee from '..';
-import { Redirect } from 'react-router-dom';
-import { wait } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
+import EditEmployeeComponent from '..';
+import { waitFor } from '@testing-library/react';
+import userEvent from '@testing-library/user-event'
 
-describe('EditEmployee', () => {
-  it('render Redirect if employee.id is empty', () => {
-    const component = shallow(<EditEmployee employee={{}} updateEmployee={jest.fn()} history={{ replace: jest.fn() }} />);
-    expect(component.containsMatchingElement(<Redirect to="/employees" />)).toEqual(true);
-  });
-
+describe('EditEmployeeComponent', () => {
   it('render EmployeeForm', () => {
-    const component = shallow(<EditEmployee employee={{ id: 2 }} updateEmployee={jest.fn()} history={{ replace: jest.fn() }} />);
-    expect(component.containsMatchingElement(EmployeeForm)).toEqual(true);
+    render(
+      <EditEmployeeComponent
+        updateEmployee={jest.fn()}
+        employee={{ id: 1, fullName: 'Jane Doe' }}
+        history={{ replace: jest.fn() }}
+      />
+    );
+    expect(screen.queryByDisplayValue('Jane Doe')).toBeInTheDocument();
   });
 
-  it('responds to submit button correctly', async () => {
-    const updateEmployeeMock = jest.fn();
-    const replaceMock = jest.fn();
-
-    const component = mount(
-      <EditEmployee
-        employee={{ id: 2 }}
+  it('submits the form if values are correct', async () => {
+    const updateEmployeeMock = jest.fn()
+    const replaceMock = jest.fn()
+    render(
+      <EditEmployeeComponent
+        employee={{
+          id: 1,
+          fullName: 'Jane Doe',
+          birthDate: '11/10/1992',
+          salary: 600,
+          jobTitle: 'Product Manager',
+          country: {
+            label: 'India',
+            value: 'India'
+          }
+        }}
         updateEmployee={updateEmployeeMock}
         history={{ replace: replaceMock }}
       />
     );
-    await wait(() => {
-      component.find('.button').last().simulate('submit')
+
+    userEvent.type(screen.getByTestId('fullName'), ' Jr');
+    userEvent.click(screen.getByText('Save'))
+
+    await waitFor(() => {
+      expect(screen.queryAllByText('Required').length).toEqual(0);
+      expect(updateEmployeeMock).toHaveBeenCalledWith({
+        fullName: 'Jane Doe Jr',
+        birthDate: '11/10/1992',
+        id: 1,
+        salary: 600,
+        jobTitle: 'Product Manager',
+        country: {
+          label: 'India',
+          value: 'India'
+        }
+      });
+      expect(replaceMock.mock.calls[0][0]).toEqual('/employees');
+      expect(replaceMock.mock.calls.length).toEqual(1);
     })
-    expect(updateEmployeeMock.mock.calls.length).toEqual(0);
-    expect(replaceMock.mock.calls.length).toEqual(0);
   });
 
-  it('responds to cancel button correctly', () => {
+  it('responds to cancel button correctly', async () => {
     const updateEmployeeMock = jest.fn();
     const replaceMock = jest.fn();
 
-    const component = mount(
-      <EditEmployee
-        employee={{ id: 2 }}
-        updateEmployee={updateEmployeeMock}
-        history={{ replace: replaceMock }}
-      />
+    render(
+      <EditEmployeeComponent employee={{ id: 1 }} updateEmployee={updateEmployeeMock} history={{ replace: replaceMock }} />
     );
-    component.find('.button').first().simulate('click')
-    expect(updateEmployeeMock.mock.calls.length).toEqual(0);
-    expect(replaceMock.mock.calls[0][0]).toEqual('/employees');
+    userEvent.click(screen.getByText('Cancel'));
+
+    await waitFor(() => {
+      expect(updateEmployeeMock.mock.calls.length).toEqual(0);
+      expect(replaceMock.mock.calls[0][0]).toEqual('/employees');
+    })
   });
 })
